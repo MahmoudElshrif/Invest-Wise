@@ -1,0 +1,15 @@
+package model;
+
+public class Investor {
+    private String name;
+    private String email;
+    private String password;
+
+    public Investor(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+
+    // Getters and setters here
+}
