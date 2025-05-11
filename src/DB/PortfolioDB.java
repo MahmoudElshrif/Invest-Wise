@@ -1,0 +1,58 @@
+package db;
+
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.Gson;
+
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.*;
+
+public class PortfolioDB {
+    private static final String FILE_PATH = "data/portfolio.json";
+    private final Gson gson = new Gson();
+
+    public void addAsset(String userEmail, String asset) {
+        Map<String, List<String>> portfolio = readPortfolio();
+        portfolio.putIfAbsent(userEmail, new ArrayList<>());
+        portfolio.get(userEmail).add(asset);
+        writePortfolio(portfolio);
+    }
+
+    public void removeAsset(String userEmail, String asset) {
+        Map<String, List<String>> portfolio = readPortfolio();
+        if (portfolio.containsKey(userEmail)) {
+            List<String> assets = portfolio.get(userEmail);
+            assets.remove(asset);
+            if (assets.isEmpty()) {
+                portfolio.remove(userEmail);
+            } else {
+                portfolio.put(userEmail, assets);
+            }
+            writePortfolio(portfolio);
+        }
+    }
+
+    public List<String> getAssets(String userEmail) {
+        Map<String, List<String>> portfolio = readPortfolio();
+        return portfolio.getOrDefault(userEmail, new ArrayList<>());
+    }
+
+    private Map<String, List<String>> readPortfolio() {
+        try (Reader reader = new FileReader(FILE_PATH)) {
+            Type type = new TypeToken<Map<String, List<String>>>() {
+            }.getType();
+            Map<String, List<String>> portfolio = gson.fromJson(reader, type);
+            return portfolio != null ? portfolio : new HashMap<>();
+        } catch (IOException e) {
+            return new HashMap<>();
+        }
+    }
+
+    private void writePortfolio(Map<String, List<String>> portfolio) {
+        try (Writer writer = new FileWriter(FILE_PATH)) {
+            gson.toJson(portfolio, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
