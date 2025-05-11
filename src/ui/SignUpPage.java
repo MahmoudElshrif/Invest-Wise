@@ -1,8 +1,6 @@
 package ui;
 
 import controller.AuthController;
-import model.Investor;
-
 import javax.swing.*;
 import java.awt.*;
 
