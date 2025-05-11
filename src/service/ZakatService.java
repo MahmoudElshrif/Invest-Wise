@@ -4,10 +4,19 @@ import db.PortfolioDB;
 
 import java.util.List;
 
+/**
+ * Provides logic to calculate zakat based on user assets.
+ */
 public class ZakatService {
     private final PortfolioDB portfolioDB = new PortfolioDB();
     private final double ZAKAT_RATE = 0.025;
 
+    /**
+     * Calculates the zakat amount owed by a user.
+     *
+     * @param userEmail the user's email
+     * @return the zakat amount
+     */
     public double calculateZakat(String userEmail) {
         List<String> assets = portfolioDB.getAssets(userEmail);
         double total = 0;

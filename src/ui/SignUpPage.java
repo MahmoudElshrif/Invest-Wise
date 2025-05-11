@@ -6,12 +6,18 @@ import model.Investor;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * UI class for user sign-up using a Swing JFrame.
+ */
 public class SignUpPage extends JFrame {
     private JTextField nameField;
     private JTextField emailField;
     private JPasswordField passwordField;
     private final AuthController authController = new AuthController();
 
+    /**
+     * Constructs the sign-up page and initializes its components.
+     */
     public SignUpPage() {
         setTitle("Wealth Wise - Sign Up");
         setSize(400, 400);
@@ -61,6 +67,9 @@ public class SignUpPage extends JFrame {
         });
     }
 
+    /**
+     * Handles the sign-up logic and shows appropriate messages.
+     */
     private void handleSignUp() {
         String name = nameField.getText();
         String email = emailField.getText();
@@ -77,6 +86,11 @@ public class SignUpPage extends JFrame {
         }
     }
 
+    /**
+     * Entry point to run the sign-up page directly.
+     *
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             SignUpPage signUpPage = new SignUpPage();

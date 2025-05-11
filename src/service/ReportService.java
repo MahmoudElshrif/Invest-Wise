@@ -6,10 +6,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Handles generation of user financial reports.
+ */
 public class ReportService {
     private final PortfolioDB portfolioDB = new PortfolioDB();
     private final ZakatService zakatService = new ZakatService();
 
+    /**
+     * Generates a text report for the user's assets and zakat.
+     *
+     * @param userEmail the user's email
+     */
     public void generateReport(String userEmail) {
         List<String> assets = portfolioDB.getAssets(userEmail);
         double zakat = zakatService.calculateZakat(userEmail);
