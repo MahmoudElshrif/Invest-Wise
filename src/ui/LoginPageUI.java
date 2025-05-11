@@ -1,8 +1,73 @@
 package ui;
 
-public class LoginPageUI {
-    public void displayLoginForm() {
-        System.out.println("Please enter your credentials:");
-        // TODO: get user input and call AuthController
+import controller.AuthController;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class LoginPageUI extends JFrame {
+    private JTextField emailField;
+    private JPasswordField passwordField;
+    private final AuthController authController = new AuthController();
+
+    public LoginPageUI() {
+        setTitle("Wealth Wise - Login");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JPanel panel = new JPanel(new BorderLayout());
+        JPanel formPanel = new JPanel(new GridLayout(4, 1, 10, 10));
+
+        // Logo
+        JLabel logoLabel = new JLabel();
+        ImageIcon logoIcon = new ImageIcon("assets/logo.png");
+        Image scaledImage = logoIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        logoLabel.setIcon(new ImageIcon(scaledImage));
+        logoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(logoLabel, BorderLayout.NORTH);
+
+        // Fields
+        emailField = new JTextField();
+        passwordField = new JPasswordField();
+
+        formPanel.add(new JLabel("Email:"));
+        formPanel.add(emailField);
+        formPanel.add(new JLabel("Password:"));
+        formPanel.add(passwordField);
+
+        // Buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        JButton loginButton = new JButton("Login");
+        JButton goToSignUpButton = new JButton("Go to Sign Up");
+
+        buttonPanel.add(loginButton);
+        buttonPanel.add(goToSignUpButton);
+
+        panel.add(formPanel, BorderLayout.CENTER);
+        panel.add(buttonPanel, BorderLayout.SOUTH);
+        add(panel);
+
+        // Listeners
+        loginButton.addActionListener(e -> handleLogin());
+        goToSignUpButton.addActionListener(e -> {
+            dispose();
+            new SignUpPage().setVisible(true);
+        });
+    }
+
+    private void handleLogin() {
+        String email = emailField.getText();
+        String password = new String(passwordField.getPassword());
+
+        boolean success = authController.login(email, password);
+
+        if (success) {
+            JOptionPane.showMessageDialog(this, "✅ Login successful!");
+            // TODO: open dashboard/portfolio
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "❌ Invalid credentials.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
