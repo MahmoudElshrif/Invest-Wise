@@ -1,6 +1,6 @@
 package model;
 
-import UI.PortfolioPage;
+import UI.PortfolioPageUI;
 // import ui.ZakatPanelUI;
 // import ui.ReportPanelUI;
 

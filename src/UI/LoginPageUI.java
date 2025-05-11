@@ -65,18 +65,18 @@ public class LoginPageUI extends JFrame {
     /**
      * Handles the login button click and validates user credentials.
      */
-    private void handleLogin() {
-        String email = emailField.getText();
-        String password = new String(passwordField.getPassword());
+	private void handleLogin() {
+		String email = emailField.getText();
+		String password = new String(passwordField.getPassword());
 
-        boolean success = authController.login(email, password);
+		boolean success = authController.login(email, password);
 
-        if (success) {
-            JOptionPane.showMessageDialog(this, "✅ Login successful!");
-            // TODO: open dashboard/portfolio
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "❌ Invalid credentials.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+		if (success) {
+			JOptionPane.showMessageDialog(this, "✅ Login successful!");
+			dispose();
+			new MainMenuUI().setVisible(true); // Navigate to the main menu
+		} else {
+			JOptionPane.showMessageDialog(this, "❌ Invalid credentials.", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+	}
 }
