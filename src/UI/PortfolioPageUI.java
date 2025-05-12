@@ -7,11 +7,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * UI for displaying the user's asset portfolio.
+ * Allows refreshing the view and returning to the dashboard.
+ */
 public class PortfolioPageUI extends JFrame {
 	private final AssetController assetController = new AssetController();
 	private final Investor investor;
 	private DefaultListModel<String> assetListModel;
 
+	/**
+	 * Constructs the portfolio window for the given investor.
+	 *
+	 * @param investor the logged-in user
+	 */
 	public PortfolioPageUI(Investor investor) {
 		this.investor = investor;
 		setTitle("Your Portfolio");
@@ -37,9 +46,12 @@ public class PortfolioPageUI extends JFrame {
 		buttonPanel.add(refreshButton);
 		buttonPanel.add(backButton);
 		add(buttonPanel, BorderLayout.SOUTH);
-
 	}
 
+	/**
+	 * Loads the assets from the database for the logged-in user
+	 * and updates the asset list display.
+	 */
 	private void loadAssets() {
 		assetListModel.clear();
 		List<String> assets = assetController.viewAssets(investor.getEmail());
@@ -47,5 +59,4 @@ public class PortfolioPageUI extends JFrame {
 			assetListModel.addElement(asset);
 		}
 	}
-
 }

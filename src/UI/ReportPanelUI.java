@@ -6,10 +6,18 @@ import model.Investor;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * UI for generating a financial report for the logged-in user.
+ */
 public class ReportPanelUI extends JFrame {
 	private final ReportController reportController = new ReportController();
 	private final Investor investor;
 
+	/**
+	 * Constructs the report panel for the given investor.
+	 *
+	 * @param investor the logged-in user
+	 */
 	public ReportPanelUI(Investor investor) {
 		this.investor = investor;
 		setTitle("Generate Report");
@@ -33,6 +41,7 @@ public class ReportPanelUI extends JFrame {
 		buttonPanel.add(generateButton);
 		buttonPanel.add(backButton);
 		add(buttonPanel, BorderLayout.CENTER);
+
 		backButton.addActionListener(e -> {
 			dispose();
 			investor.openDashboard();

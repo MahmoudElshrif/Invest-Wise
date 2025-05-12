@@ -3,7 +3,18 @@ import UI.SignUpPage;
 
 import javax.swing.*;
 
+/**
+ * Main class for launching the Wealth Wise application.
+ */
 public class Main {
+
+    /**
+     * Application entry point.
+     * Displays an initial dialog asking the user whether to log in or sign up.
+     * Based on the selection, the corresponding UI is shown.
+     *
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
         // Run the GUI on the Swing thread
         SwingUtilities.invokeLater(() -> {

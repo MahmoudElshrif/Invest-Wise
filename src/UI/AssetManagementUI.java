@@ -7,11 +7,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * UI for managing user assets. Allows users to add, view, and refresh assets.
+ */
 public class AssetManagementUI extends JFrame {
 	private final AssetController assetController = new AssetController();
 	private final Investor investor;
 	private DefaultListModel<String> assetListModel;
 
+	/**
+	 * Constructs the asset management window for the given investor.
+	 *
+	 * @param investor the logged-in investor
+	 */
 	public AssetManagementUI(Investor investor) {
 		this.investor = investor;
 
@@ -82,6 +90,9 @@ public class AssetManagementUI extends JFrame {
 		loadAssets();
 	}
 
+	/**
+	 * Loads the user's asset list from the database and updates the UI.
+	 */
 	private void loadAssets() {
 		assetListModel.clear();
 		List<String> assets = assetController.viewAssets(investor.getEmail());
