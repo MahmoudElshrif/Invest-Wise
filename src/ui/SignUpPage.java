@@ -83,8 +83,6 @@ public class SignUpPage extends JFrame {
 			JOptionPane.showMessageDialog(this, "✅ Sign up successful! Please log in.");
 			new LoginPageUI().setVisible(true);
 			dispose();
-		} else {
-			JOptionPane.showMessageDialog(this, "❌ Email already exists.", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

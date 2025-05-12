@@ -103,6 +103,11 @@ public class AssetManagementUI extends JFrame {
 		loadAssets();
 	}
 
+	/**
+	 * Removes the selected asset from the investor's portfolio
+	 * 
+	 * @param assetID
+	 */
 	public void RemoveAsset(int assetID) {
 		if (assetID >= 0 && assetID < assetListModel.size()) {
 			assetController.removeAsset(investor.getEmail(), assetListModel.get(assetID));
