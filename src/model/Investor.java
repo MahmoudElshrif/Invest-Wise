@@ -25,10 +25,6 @@ public class Investor {
 		new DashboardUI(this).setVisible(true);
 	}
 
-	public void openPortfolio() {
-		new PortfolioPageUI(this).setVisible(true);
-	}
-
 	public void openZakatPanel() {
 		new ZakatPanelUI(this).setVisible(true);
 	}
