@@ -69,7 +69,8 @@ public class SignUpPage extends JFrame {
 	}
 
 	/**
-	 * Handles the sign-up logic and shows appropriate messages.
+	 * Handles the sign-up process by validating and registering the user.
+	 * Shows appropriate messages based on success or failure.
 	 */
 	private void handleSignUp() {
 		String name = nameField.getText();
