@@ -1,0 +1,6 @@
+? Wealth Wise Report for ahmed@gmail.com
+
+Assets:
+ - bitcoin - 987550.0
+
+? Zakat Due: 24688.75

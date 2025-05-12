@@ -3,5 +3,6 @@
 Assets:
  - Gold - 15000.0
  - silver - 1000.0
+ - weed - 150000.0
 
-? Zakat Due: 400.0
+? Zakat Due: 4150.0

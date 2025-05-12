@@ -1,15 +1,22 @@
-package ui;
+package UI;
 
 import controller.AuthController;
+import model.Investor;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * UI for user login using a Swing JFrame.
+ */
 public class LoginPageUI extends JFrame {
     private JTextField emailField;
     private JPasswordField passwordField;
     private final AuthController authController = new AuthController();
 
+    /**
+     * Constructs the login page and initializes its components.
+     */
     public LoginPageUI() {
         setTitle("Wealth Wise - Login");
         setSize(400, 300);
@@ -56,6 +63,9 @@ public class LoginPageUI extends JFrame {
         });
     }
 
+    /**
+     * Handles the login button click and validates user credentials.
+     */
     private void handleLogin() {
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());
@@ -64,8 +74,9 @@ public class LoginPageUI extends JFrame {
 
         if (success) {
             JOptionPane.showMessageDialog(this, "✅ Login successful!");
-            // TODO: open dashboard/portfolio
             dispose();
+            Investor investor = new Investor("User", email, password); // name hardcoded or retrieved
+            investor.openDashboard(); // opens DashboardUI
         } else {
             JOptionPane.showMessageDialog(this, "❌ Invalid credentials.", "Error", JOptionPane.ERROR_MESSAGE);
         }

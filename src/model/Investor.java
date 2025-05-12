@@ -1,28 +1,39 @@
 package model;
 
-import ui.PortfolioPage;
-// import ui.ZakatPanelUI;
-// import ui.ReportPanelUI;
+import UI.*;
 
 public class Investor {
-    private String name;
-    private String email;
-    private String password;
+	private String name;
+	private String email;
+	private String password;
 
-    // constructor + getters/setters...
+	public Investor(String name, String email, String password) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
 
-    // public void openPortfolio() {
-    // PortfolioPage page = new PortfolioPage(this.email);
-    // page.showAssets();
-    // }
+	public String getEmail() {
+		return email;
+	}
 
-    // public void viewZakatPanel() {
-    // ZakatPanelUI panel = new ZakatPanelUI(this.email);
-    // panel.displayZakat();
-    // }
+	public void openDashboard() {
+		new DashboardUI(this).setVisible(true);
+	}
 
-    // public void viewReportPanel() {
-    // ReportPanelUI panel = new ReportPanelUI(this.email);
-    // panel.showReport();
-    // }
+	public void openPortfolio() {
+		new PortfolioPageUI(this).setVisible(true);
+	}
+
+	public void openZakatPanel() {
+		new ZakatPanelUI(this).setVisible(true);
+	}
+
+	public void openReportPanel() {
+		new ReportPanelUI(this).setVisible(true);
+	}
+
+	public void openAssetManager() {
+		new AssetManagementUI(this).setVisible(true);
+	}
 }

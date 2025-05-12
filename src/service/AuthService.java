@@ -1,15 +1,32 @@
 package service;
 
-import db.UserDB;
+import DB.UserDB;
 
+/**
+ * Provides authentication services for login and registration.
+ */
 public class AuthService {
-    private UserDB userDB = new UserDB();
+	private UserDB userDB = new UserDB();
 
-    public boolean validateLogin(String email, String password) {
-        return userDB.validateUser(email, password);
-    }
+	/**
+	 * Validates user login credentials.
+	 *
+	 * @param email    the user's email
+	 * @param password the user's password
+	 * @return true if the credentials are correct, false otherwise
+	 */
+	public boolean validateLogin(String email, String password) {
+		return userDB.validateUser(email, password);
+	}
 
-    public boolean registerUser(String email, String password) {
-        return userDB.saveUser(email, password);
-    }
+	/**
+	 * Registers a new user if the email is not already taken.
+	 *
+	 * @param email    the user's email
+	 * @param password the user's password
+	 * @return true if registration is successful, false otherwise
+	 */
+	public boolean registerUser(String email, String password) {
+		return userDB.saveUser(email, password);
+	}
 }
