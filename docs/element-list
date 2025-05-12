@@ -1,6 +1,6 @@
 unnamed package
 controller
-db
+DB
 model
 service
-ui
+UI

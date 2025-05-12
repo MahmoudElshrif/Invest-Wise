@@ -1,6 +1,10 @@
 package model;
 
 import UI.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Investor {
 	private String name;
@@ -21,10 +25,6 @@ public class Investor {
 		new DashboardUI(this).setVisible(true);
 	}
 
-	public void openPortfolio() {
-		new PortfolioPageUI(this).setVisible(true);
-	}
-
 	public void openZakatPanel() {
 		new ZakatPanelUI(this).setVisible(true);
 	}
@@ -36,4 +36,5 @@ public class Investor {
 	public void openAssetManager() {
 		new AssetManagementUI(this).setVisible(true);
 	}
+
 }

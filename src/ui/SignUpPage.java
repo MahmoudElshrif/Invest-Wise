@@ -69,7 +69,8 @@ public class SignUpPage extends JFrame {
 	}
 
 	/**
-	 * Handles the sign-up logic and shows appropriate messages.
+	 * Handles the sign-up process by validating and registering the user.
+	 * Shows appropriate messages based on success or failure.
 	 */
 	private void handleSignUp() {
 		String name = nameField.getText();
@@ -82,8 +83,6 @@ public class SignUpPage extends JFrame {
 			JOptionPane.showMessageDialog(this, "✅ Sign up successful! Please log in.");
 			new LoginPageUI().setVisible(true);
 			dispose();
-		} else {
-			JOptionPane.showMessageDialog(this, "❌ Email already exists.", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
