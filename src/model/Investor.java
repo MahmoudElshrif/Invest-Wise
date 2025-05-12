@@ -1,6 +1,10 @@
 package model;
 
 import UI.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Investor {
 	private String name;
@@ -36,4 +40,5 @@ public class Investor {
 	public void openAssetManager() {
 		new AssetManagementUI(this).setVisible(true);
 	}
+
 }

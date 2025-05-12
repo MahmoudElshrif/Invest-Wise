@@ -6,7 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Dashboard UI for navigating between different features of the Wealth Wise system.
+ * Dashboard UI for navigating between different features of the Wealth Wise
+ * system.
  */
 public class DashboardUI extends JFrame {
 	private final Investor investor;
@@ -37,8 +38,8 @@ public class DashboardUI extends JFrame {
 		buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
 		buttonPanel.add(createButton("Manage Assets", investor::openAssetManager));
-		buttonPanel.add(Box.createRigidArea(new Dimension(0, 10)));
-		buttonPanel.add(createButton("View Portfolio", investor::openPortfolio));
+		// buttonPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+		// buttonPanel.add(createButton("View Portfolio", investor::openPortfolio));
 		buttonPanel.add(Box.createRigidArea(new Dimension(0, 10)));
 		buttonPanel.add(createButton("Calculate Zakat", investor::openZakatPanel));
 		buttonPanel.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -57,7 +58,8 @@ public class DashboardUI extends JFrame {
 	}
 
 	/**
-	 * Creates a styled button with an attached action and handles disposal of the current frame.
+	 * Creates a styled button with an attached action and handles disposal of the
+	 * current frame.
 	 *
 	 * @param text   the label on the button
 	 * @param action the action to perform when clicked

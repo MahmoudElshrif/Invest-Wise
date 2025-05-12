@@ -1,6 +1,7 @@
 package UI;
 
 import controller.AssetController;
+import javafx.event.ActionEvent;
 import model.Investor;
 
 import javax.swing.*;
@@ -51,9 +52,11 @@ public class AssetManagementUI extends JFrame {
 
 		JPanel bottomPanel = new JPanel(new FlowLayout());
 		JButton refreshButton = new JButton("Refresh");
+		JButton removeButton = new JButton("Remove");
 		JButton backButton = new JButton("Back");
 
 		bottomPanel.add(refreshButton);
+		bottomPanel.add(removeButton);
 		bottomPanel.add(backButton);
 		panel.add(bottomPanel, BorderLayout.SOUTH);
 
@@ -81,6 +84,16 @@ public class AssetManagementUI extends JFrame {
 			}
 		});
 
+		removeButton.addActionListener(e -> {
+			int index = assetList.getSelectedIndex();
+
+			if (index == -1) {
+				JOptionPane.showMessageDialog(this, "no item selected");
+			} else {
+				RemoveAsset(index);
+			}
+		});
+
 		refreshButton.addActionListener(e -> loadAssets());
 		backButton.addActionListener(e -> {
 			dispose();
@@ -88,6 +101,16 @@ public class AssetManagementUI extends JFrame {
 		});
 
 		loadAssets();
+	}
+
+	public void RemoveAsset(int assetID) {
+		if (assetID >= 0 && assetID < assetListModel.size()) {
+			assetController.removeAsset(investor.getEmail(), assetListModel.get(assetID));
+			loadAssets();
+			JOptionPane.showMessageDialog(this, "Asset removed from the list.");
+		} else {
+			JOptionPane.showMessageDialog(this, "Invalid asset ID.");
+		}
 	}
 
 	/**
