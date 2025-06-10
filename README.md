@@ -1,92 +1,84 @@
-# Wealth Wise
+# 💰 Wealth Wise
 
-Wealth Wise is a Java-based application designed to help users manage their financial assets, portfolios, and reports. Below is an overview of the key Java files in the project and their respective functionalities:
-
-## Controller Layer
-
-1. **AssetController.java**
-
-   - Handles asset-related operations such as adding, viewing, and removing assets.
-
-2. **AuthController.java**
-
-   - Manages user authentication, including login and registration.
-
-3. **ReportController.java**
-
-   - Facilitates the generation and retrieval of financial reports.
-
-4. **ZakatController.java**
-   - Calculates and manages Zakat-related functionalities.
-
-## Database Layer
-
-1. **AssetDB.java**
-
-   - Handles database operations related to assets, such as storing and retrieving asset data.
-
-2. **PortfolioDB.java**
-
-   - Manages database interactions for user portfolios.
-
-3. **UserDB.java**
-   - Handles user-related database operations, including user information storage and retrieval.
-
-## Model Layer
-
-1. **Investor.java**
-   - Represents the user (investor) in the system, including their attributes and behaviors.
-
-## Service Layer
-
-1. **AssetService.java**
-
-   - Provides business logic for asset management, acting as a bridge between the controller and database layers.
-
-2. **AuthService.java**
-
-   - Implements authentication logic, including password validation and user session management.
-
-3. **PortfolioDE.java**
-
-   - Handles portfolio-related business logic.
-
-4. **ReportService.java**
-
-   - Provides services for generating and managing financial reports.
-
-5. **ZakatService.java**
-   - Implements the logic for Zakat calculations and related operations.
-
-## UI Layer
-
-1. **AssetManagementUI.java**
-
-   - Provides a graphical user interface for managing user assets, including adding, viewing, and editing assets.
-
-2. **DashboardUI.java**
-
-   - Displays the main dashboard for users after login, providing access to various features.
-
-3. **LoginPageUI.java**
-
-   - Handles the user login interface.
-
-4. **ReportPanelUI.java**
-
-   - Displays financial reports to the user.
-
-5. **PortfolioPageUI.java**
-
-   - Provides an interface for managing and viewing user portfolios.
-
-6. **SignUpPage.java**
-
-   - Handles the user registration interface.
-
-7. **ZakatPanelUI.java**
-   - Provides a user interface for Zakat-related functionalities.
+**Wealth Wise** is a Java-based desktop application designed to help users manage their **financial assets**, **portfolios**, **Zakat**, and **detailed reports**. The project follows a clean, layered architecture with a strong separation of concerns, ensuring maintainability and scalability.
 
 ---
 
-This project is structured to follow a clear separation of concerns, with each layer handling specific responsibilities to ensure maintainability and scalability.
+## 🧱 Architecture Overview
+
+The application is divided into multiple logical layers:
+
+### 📦 Controller Layer
+
+Handles user actions and connects the UI with the business logic.
+
+- **`AssetController.java`** – Manage asset operations (add, view, delete).
+- **`AuthController.java`** – Handle user authentication (login, registration).
+- **`ReportController.java`** – Generate and retrieve financial reports.
+- **`ZakatController.java`** – Calculate and manage Zakat obligations.
+
+---
+
+### 🗃️ Database Layer
+
+Manages data persistence and interaction with the underlying storage.
+
+- **`AssetDB.java`** – Perform CRUD operations for assets.
+- **`PortfolioDB.java`** – Manage data related to user portfolios.
+- **`UserDB.java`** – Handle user information and credentials.
+
+---
+
+### 🧍 Model Layer
+
+Represents the core data structures used throughout the system.
+
+- **`Investor.java`** – Defines user properties and behavior (i.e., the investor).
+
+---
+
+### 🧠 Service Layer
+
+Implements the application's core business logic.
+
+- **`AssetService.java`** – Connects asset operations between the UI and DB.
+- **`AuthService.java`** – Handles login validation and session management.
+- **`PortfolioDE.java`** – Business logic for portfolio management.
+- **`ReportService.java`** – Generates financial summaries and analysis.
+- **`ZakatService.java`** – Calculates Zakat obligations accurately.
+
+---
+
+### 🖥️ UI Layer
+
+Provides a graphical interface to enhance user interaction.
+
+- **`AssetManagementUI.java`** – GUI for adding/editing/viewing assets.
+- **`DashboardUI.java`** – Main landing interface post-login.
+- **`LoginPageUI.java`** – User login screen.
+- **`SignUpPage.java`** – User registration screen.
+- **`PortfolioPageUI.java`** – Manage and view portfolios.
+- **`ReportPanelUI.java`** – Display financial reports.
+- **`ZakatPanelUI.java`** – Interact with Zakat calculator and results.
+
+---
+
+## 🧩 Key Features
+
+- 🔐 **User Authentication** – Register and login securely.
+- 📊 **Asset Management** – Track, add, and view various financial assets.
+- 🗂️ **Portfolio Overview** – Monitor overall financial health.
+- 📑 **Report Generation** – Visualize and export detailed financial reports.
+- 🕌 **Zakat Calculator** – Automatically compute Zakat based on assets.
+- 🖼️ **User-Friendly GUI** – Interactive and clean Swing-based interfaces.
+
+---
+
+## 🚀 Getting Started
+
+### 🧰 Requirements
+
+- Java JDK 8 or later
+- Java IDE (e.g., IntelliJ, Eclipse, NetBeans)
+
+---
